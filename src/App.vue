@@ -1,19 +1,23 @@
 <template>
   <v-app>
     <v-main>
-      <h1>Hello smurfs</h1>
+      <Header />
       <router-view></router-view>
+      <Footer />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import Header from './components/Layout/Header.vue'
+import Footer from './components/Layout/Footer.vue'
 
 export default {
   name: 'App',
 
   components: {
-
+    Header,
+    Footer,
   },
 
   data: () => ({
