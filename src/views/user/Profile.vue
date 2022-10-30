@@ -4,39 +4,67 @@
     style="background-image:url('https://picsum.photos/700/320?random')"
   ></div>
   <div class="member-snippet">
-    <v-container class="d-flex justify-center align-center pa-0">
-      <div>
-        
-      </div>
-      <v-avatar color="info" size="x-large">
-        AM
-      </v-avatar>
-      <span class="item name">VinylPlaya</span>
-      <span class="item break"></span>
-      <p class="item">Member Since: XX/XX/XXXX</p>
-      <v-spacer></v-spacer>
-      <div class="item-info">
-        <span class="icon">
-          <font-awesome-icon :icon="['fas', 'gun']" />
-        </span>
-        <span>Hitlist Items</span>
-      </div>
-      <div class="item-info">
-        <span class="icon">
-          <font-awesome-icon :icon="['fas', 'check']" />
-        </span>
-        <span>Hits Listed</span>
-      </div>
-      <div class="item-info">
-        <span class="icon">
-          <font-awesome-icon :icon="['fas', 'bullseye']" />
-        </span>
-        <span>Hits Completed</span>
-      </div>
+    <v-container fluid class="d-flex justify-center align-center pt-0 pb-0">
+      <v-row>
+        <v-col col="4" class="user-info-cont">
+          <v-avatar color="info" size="x-large">
+            AM
+          </v-avatar>
+          <span class="item name">VinylPlaya</span>
+          <span class="item break"></span>
+          <p class="item">Member Since: XX/XX/XXXX</p>
+        </v-col>
+        <v-spacer></v-spacer>
+
+        <v-col col="6" class="item-info-cont">
+          <div class="item-info">
+            <span class="icon">
+              <font-awesome-icon :icon="['fas', 'gun']" />
+            </span>
+            <span>Hitlist Items</span>
+          </div>
+          <div class="item-info">
+            <span class="icon">
+              <font-awesome-icon :icon="['fas', 'check']" />
+            </span>
+            <span>Hits Listed</span>
+          </div>
+          <div class="item-info">
+            <span class="icon">
+              <font-awesome-icon :icon="['fas', 'bullseye']" />
+            </span>
+            <span>Hits Completed</span>
+          </div>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
+
+
+  <v-container fluid class="d-fluid">
+    <h2>Top Ten WantList:</h2>
+    <v-row>
+      <v-col col="12" class="record-list wantlist">
+        <span v-for="(item,index) in TopTen" :key="index" cols="2">
+          <Record display="cover"/>
+        </span>
+      </v-col>
+    </v-row>
+
+  </v-container>
+
 </template>
 <script>
+  import Record from '@/components/Record.vue'
+
+  export default {
+    name: "Profile",
+    components: { Record },
+    data: () => ({
+      TopTen: [0,1,2,3,4,5,6,7,8,9],
+    }),
+  }
+
 
 </script>
 <style lang="scss" scoped>
@@ -59,8 +87,18 @@
   .member-snippet {
     display: flex;
     background: #fff;
-    border-radius: 12px;
     text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    .user-info-cont,
+    .item-info-cont {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .item-info-cont {
+      justify-content: flex-end;
+    }
 
 
     .name {
@@ -72,7 +110,7 @@
 
     .break {
       height: 80px;
-      background: #000;
+      background: rgba(0,0,0,0.1);
       width: 1px;
       opacity: 1;
       margin: 0 10px;
@@ -82,7 +120,7 @@
     .item-info {
       display: flex;
       height: 100%;
-      border-left: 1px solid rgba(0,0,0,0.5);
+      border-left: 1px solid rgba(0,0,0,0.1);
       align-items: center;
       flex-direction: column;
       padding: 0 5px;
@@ -94,6 +132,14 @@
         margin: auto;
         height: 20px;
       }
+    }
+  }
+
+  .record-list {
+    span {
+      display: inline-block;
+      width: calc(100% / 10);
+      padding-right: 10px;
     }
   }
 

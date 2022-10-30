@@ -16,7 +16,7 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 
 // User / dashboard / edit account / view user wishlist etc(?)
-import Profile from './views/User/Profile.vue'
+import Profile from './views/user/Profile.vue'
 
 
 // COMPONENT IMPORT END 
