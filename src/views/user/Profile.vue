@@ -40,18 +40,35 @@
     </v-container>
   </div>
 
-
-  <v-container fluid class="d-fluid">
-    <h2>Top Ten WantList:</h2>
+  <!--- User about section -->
+  <!--
+  <v-container>
     <v-row>
-      <v-col col="12" class="record-list wantlist">
+      <v-col col="12">
+        <p>My name is X, and I really love Artists like X,Y,Z.</p>
+        <p>I started collecting records two years ago, and have a few I'm looking for!</p>
+      </v-col>
+    </v-row>
+  </v-container>
+-->
+
+  <!-- 'Top Ten' wanted items -->
+  <v-container fluid class="d-fluid">
+    <v-row>
+      <v-col cols="12">
+        <h2>Top Ten WantList:</h2>
+        <router-link to="/profile/allan/wantlist">View All</router-link>
+      </v-col>
+      <v-col cols="12" class="record-list wantlist">
         <span v-for="(item,index) in TopTen" :key="index" cols="2">
           <Record display="cover"/>
         </span>
       </v-col>
     </v-row>
-
   </v-container>
+
+  <!-- List all wanted items in a custom table -->
+
 
 </template>
 <script>

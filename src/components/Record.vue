@@ -8,7 +8,7 @@
         cover
       ></v-img>      
       <div class="overlay" v-if='display === "cover"'>
-        Cover
+        <p class="name">Elliott Smith, Roman Candle</p>
       </div>
     </div>
     <v-card class="content" v-if='display != "cover"' plain>
